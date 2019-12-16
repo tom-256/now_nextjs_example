@@ -25,7 +25,9 @@ const Home = () => {
         <p className="description">
           To get started, edit the <code>pages/index.js</code> or <code>pages/api/date.js</code> files, then save to reload.
         </p>
-
+        <p className="description">
+          {process.env.TEST_VAR}
+        </p>
         <p className="row date">
           The date is:&nbsp; {date
             ? <span><b>{date.date}</b></span>
