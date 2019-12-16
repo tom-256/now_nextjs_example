@@ -1,7 +1,9 @@
 {
   "build": {
     "env": {
-      "TEST_VAR": "@test_var"
+      "TEST_VAR": "@test_var",
+      "GCLOUD_STORAGE_BUCKET": "@gcloud_storage_bucket",
+      "GCLOUD_PROJECT_ID": "@gcloud_project_id"
     }
   }
 }
