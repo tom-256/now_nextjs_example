@@ -1,5 +1,7 @@
 {
-  "env": {
-    "TEST_VAR": "@test_var"
+  "build": {
+    "env": {
+      "TEST_VAR": "@test_var"
+    }
   }
 }
