@@ -5,6 +5,7 @@ import Nav from '../components/nav'
 
 const Home = () => {
   const [date, setDate] = useState(null);
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
     async function getDate() {
@@ -12,7 +13,13 @@ const Home = () => {
       const newDate = await res.json();
       setDate(newDate);
     }
+    async function getImage() {
+      const res = await fetch('/api/image');
+      const image = await res.json();
+      setImage(image);
+    }
     getDate();
+    getImage();
   }, []);
 
   return (
@@ -33,7 +40,13 @@ const Home = () => {
             ? <span><b>{date.date}</b></span>
             : <span className="loading"></span>}
         </p>
-
+        <div className="dog">
+          {image ? (
+            <img src={image.src} alt="dog image"></img>
+          ) : (
+            <span className="loading"></span>
+          )}
+        </div>
         <div className='row'>
           <Link href='https://github.com/zeit/next.js#setup'>
             <a className='card'>
@@ -130,6 +143,13 @@ const Home = () => {
           padding: 12px 0 0;
           font-size: 13px;
           color: #333;
+        }
+        .dog {
+          text-align:center;
+        }
+        .dog img {
+          width: auto;
+          height:auto;
         }
       `}</style>
     </div>
